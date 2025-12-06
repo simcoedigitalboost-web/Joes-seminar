@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free First-Time Home Buyer Webinar | [CITY_NAME]</title>
+    <meta name="description" content="Free online workshop for [CITY_NAME] first-time home buyers. Learn about grants, rebates, and how to get up to $40,000 in incentives.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-primary: #1e3a5f;
+            --color-primary-light: #2d5a8a;
+            --color-accent: #c9a227;
+            --color-accent-hover: #b89223;
+            --color-text: #2c3e50;
+            --color-text-light: #5a6c7d;
+            --color-bg: #fdfcfa;
+            --color-bg-alt: #f5f3ef;
+            --color-white: #ffffff;
+            --color-success: #27ae60;
+            --font-display: 'Fraunces', Georgia, serif;
+            --font-body: 'Source Sans 3', -apple-system, sans-serif;
+            --shadow-md: 0 4px 20px rgba(30, 58, 95, 0.12);
+            --shadow-lg: 0 8px 40px rgba(30, 58, 95, 0.16);
+            --radius-md: 12px;
+            --radius-lg: 20px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--color-text);
+            background: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--color-primary);
+        }
+        h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; }
+        h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); margin-bottom: 1.5rem; }
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: var(--color-white);
+            padding: 50px 0 70px;
+        }
+        .hero h1 { color: var(--color-white); margin-bottom: 0.5rem; }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 50px;
+            align-items: start;
+        }
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; }
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-primary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        .hero-detail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+        .hero-detail svg { flex-shrink: 0; opacity: 0.8; }
+
+        /* FORM CARD */
+        .form-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+        }
+        .form-card h3 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+        .form-card .form-subtitle {
+            text-align: center;
+            color: var(--color-text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+        
+        .form-group { margin-bottom: 16px; }
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            color: var(--color-text);
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-family: var(--font-body);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+        }
+        
+        .checkbox-group { margin: 20px 0; }
+        .checkbox-group-label {
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+            color: var(--color-text);
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 3px;
+            accent-color: var(--color-primary);
+            cursor: pointer;
+        }
+        .checkbox-item span {
+            font-size: 0.95rem;
+            color: var(--color-text);
+            line-height: 1.4;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 16px 32px;
+            background: var(--color-accent);
+            color: var(--color-primary);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* VALUE PROPS */
+        .value-section { padding: 70px 0; background: var(--color-bg-alt); }
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        @media (max-width: 768px) { .value-grid { grid-template-columns: 1fr; } }
+        .value-card {
+            background: var(--color-white);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+        .value-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+        .value-amount {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+        .value-card p {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* WHAT YOU'LL LEARN */
+        .learn-section { padding: 70px 0; }
+        .learn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        @media (max-width: 768px) { .learn-grid { grid-template-columns: 1fr; } }
+        .learn-column h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+        .learn-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+        .learn-item svg {
+            flex-shrink: 0;
+            color: var(--color-success);
+            margin-top: 2px;
+        }
+        .learn-item span { font-size: 1rem; }
+
+        /* SPEAKERS */
+        .speakers-section { padding: 70px 0; background: var(--color-bg-alt); }
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        @media (max-width: 768px) { .speakers-grid { grid-template-columns: 1fr; } }
+        .speaker-card {
+            background: var(--color-white);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+        .speaker-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            margin-bottom: 0.25rem;
+        }
+        .speaker-role {
+            color: var(--color-accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+        .speaker-contact { font-size: 0.9rem; color: var(--color-text-light); }
+        .speaker-contact a { color: var(--color-primary); text-decoration: none; }
+
+        .why-section { padding: 70px 0; }
+        .why-content { max-width: 700px; margin: 0 auto; text-align: center; }
+        .why-content p { font-size: 1.1rem; color: var(--color-text-light); }
+
+        .cta-section {
+            padding: 70px 0;
+            background: var(--color-primary);
+            color: var(--color-white);
+            text-align: center;
+        }
+        .cta-section h2 { color: var(--color-white); margin-bottom: 0.5rem; }
+        .cta-section p { opacity: 0.9; margin-bottom: 1.5rem; }
+        .cta-section .btn-primary { width: auto; display: inline-block; }
+
+        footer { padding: 30px 0; text-align: center; font-size: 0.9rem; color: var(--color-text-light); }
+        
+        .success-message { display: none; text-align: center; padding: 40px 20px; }
+        .success-message.show { display: block; }
+        .success-message h3 { color: var(--color-primary); margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="hero-badge">Free Online Workshop</span>
+                    <h1>First-Time Home Buyer Webinar</h1>
+                    <p class="hero-subtitle">[CITY_NAME] &mdash; Learn how to save up to $40,000 on your first home purchase</p>
+                    
+                    <div class="hero-details">
+                        <div class="hero-detail">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            <span><strong>[WEBINAR_DATE]</strong></span>
+                        </div>
+                        <div class="hero-detail">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <span><strong>[WEBINAR_TIME]</strong> (1 hour)</span>
+                        </div>
+                        <div class="hero-detail">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 10l5 5-5 5"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></svg>
+                            <span>Hosted on Zoom</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div id="registration-form">
+                        <h3>Reserve Your Spot</h3>
+                        <p class="form-subtitle">Limited spaces available</p>
+                        
+                        <form id="webinar-form" action="[FORM_ACTION_URL]" method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            
+                            <div class="checkbox-group">
+                                <span class="checkbox-group-label">I'm mainly interested in:</span>
+                                <label class="checkbox-item"><input type="checkbox" name="interests" value="first-time-buyer-incentive"><span>First Time Buyer Incentive</span></label>
+                                <label class="checkbox-item"><input type="checkbox" name="interests" value="down-payment-assistance"><span>Down payment assistance program</span></label>
+                                <label class="checkbox-item"><input type="checkbox" name="interests" value="home-buying-process"><span>Learning about the home buying process</span></label>
+                                <label class="checkbox-item"><input type="checkbox" name="interests" value="rebates-grants"><span>Rebates, grants &amp; home buyer credits</span></label>
+                                <label class="checkbox-item"><input type="checkbox" name="interests" value="mortgage-qualify"><span>How to qualify for a mortgage</span></label>
+                                <label class="checkbox-item"><input type="checkbox" name="interests" value="find-agent"><span>Getting connected with an agent</span></label>
+                                <label class="checkbox-item"><input type="checkbox" name="interests" value="pre-approval"><span>Securing a mortgage pre-approval</span></label>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary">Reserve Your Spot</button>
+                        </form>
+                    </div>
+                    <div id="success-message" class="success-message">
+                        <h3>You're Registered!</h3>
+                        <p>Check your email for confirmation and Zoom link.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="value-section">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom: 40px;">What You Could Save</h2>
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-amount">$40,000+</div>
+                    <h3>In Total Savings</h3>
+                    <p>From rebates, incentives, tax breaks, and deductions available to first-time buyers</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-amount">$15,000</div>
+                    <h3>Down Payment Grant</h3>
+                    <p>Learn where to apply if you don't have a down payment saved</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-amount">$10,000</div>
+                    <h3>Home Warranty</h3>
+                    <p>How to qualify for a free home warranty program</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="learn-section">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom: 40px;">What You'll Learn</h2>
+            <div class="learn-grid">
+                <div class="learn-column">
+                    <h3>Home Buying Fundamentals</h3>
+                    <div class="learn-item">
+                        <svg width="20" height="20" fill="none" stroke="#27ae60" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Understanding your credit score and tips to improve it</span>
+                    </div>
+                    <div class="learn-item">
+                        <svg width="20" height="20" fill="none" stroke="#27ae60" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Tips to getting the best mortgage rate</span>
+                    </div>
+                    <div class="learn-item">
+                        <svg width="20" height="20" fill="none" stroke="#27ae60" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Different mortgage types available to you</span>
+                    </div>
+                    <div class="learn-item">
+                        <svg width="20" height="20" fill="none" stroke="#27ae60" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>The value of working with a Realtor</span>
+                    </div>
+                    <div class="learn-item">
+                        <svg width="20" height="20" fill="none" stroke="#27ae60" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Bank mortgage insurance vs. life insurance</span>
+                    </div>
+                </div>
+                <div class="learn-column">
+                    <h3>Incentives &amp; Programs</h3>
+                    <div class="learn-item">
+                        <svg width="20" height="20" fill="none" stroke="#27ae60" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>First-Time Home Buyer Incentive (5-10% extra down payment)</span>
+                    </div>
+                    <div class="learn-item">
+                        <svg width="20" height="20" fill="none" stroke="#27ae60" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Cash-back incentives and rebates</span>
+                    </div>
+                    <div class="learn-item">
+                        <svg width="20" height="20" fill="none" stroke="#27ae60" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Setting up cash back for closing costs or renovations</span>
+                    </div>
+                    <div class="learn-item">
+                        <svg width="20" height="20" fill="none" stroke="#27ae60" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>"New to Canada" mortgage program</span>
+                    </div>
+                    <div class="learn-item">
+                        <svg width="20" height="20" fill="none" stroke="#27ae60" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Current stress test rules explained</span>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align:center; margin-top: 30px; color: var(--color-text-light);">Plus: Everyone who attends receives a <strong>free 50-page First Time Home Buyer Guide</strong></p>
+        </div>
+    </section>
+
+    <section class="speakers-section">
+        <div class="container">
+            <h2 style="text-align:center;">Your Hosts</h2>
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <h4>[SPEAKER_1_NAME]</h4>
+                    <div class="speaker-role">[SPEAKER_1_TITLE]</div>
+                    <div class="speaker-contact">
+                        [SPEAKER_1_PHONE]<br>
+                        <a href="mailto:[SPEAKER_1_EMAIL]">[SPEAKER_1_EMAIL]</a>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <h4>[SPEAKER_2_NAME]</h4>
+                    <div class="speaker-role">[SPEAKER_2_TITLE]</div>
+                    <div class="speaker-contact">
+                        [SPEAKER_2_PHONE]<br>
+                        <a href="mailto:[SPEAKER_2_EMAIL]">[SPEAKER_2_EMAIL]</a>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <h4>[SPEAKER_3_NAME]</h4>
+                    <div class="speaker-role">[SPEAKER_3_TITLE]</div>
+                    <div class="speaker-contact">
+                        [SPEAKER_3_PHONE]<br>
+                        <a href="mailto:[SPEAKER_3_EMAIL]">[SPEAKER_3_EMAIL]</a>
+                    </div>
+                </div>
+                    </div>
+    </section>
+
+    <section class="why-section">
+        <div class="container">
+            <div class="why-content">
+                <h2>Why Is This Free?</h2>
+                <p>We do this to educate home buyers. Our hope is that when you're ready, you'll choose to work with us. In the meantime, we want everyone to know about the grants and rebates available &mdash; and to tell their friends.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Learn How to Save Thousands?</h2>
+            <p>[WEBINAR_DATE] at [WEBINAR_TIME] &mdash; [CITY_NAME]</p>
+            <a href="#" class="btn-primary" onclick="document.querySelector('.form-card').scrollIntoView({behavior:'smooth'}); return false;">Reserve Your Free Spot</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Home Buying Seminars. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
